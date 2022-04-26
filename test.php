@@ -10,4 +10,6 @@ if(!empty($keep->errstr)){
 $keep->read();
 $keep->read();
 
-$auth=$keep->write('{"cmd":"Auth","num":1}');
+$keep->write('42["command",{"cmd":"Auth","num":1}]');
+$auth=json_decode($keep->read());
+var_dump($auth);
